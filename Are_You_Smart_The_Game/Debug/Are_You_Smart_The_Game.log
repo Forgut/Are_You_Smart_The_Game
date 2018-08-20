@@ -1,0 +1,6 @@
+﻿  board.cpp
+d:\programy c++\are_you_smart_the_game\are_you_smart_the_game\board.cpp(162): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Main.cpp
+  Generating Code...
+  Are_You_Smart_The_Game.vcxproj -> D:\Programy C++\Are_You_Smart_The_Game\Debug\Are_You_Smart_The_Game.exe
+  Are_You_Smart_The_Game.vcxproj -> D:\Programy C++\Are_You_Smart_The_Game\Debug\Are_You_Smart_The_Game.pdb (Full PDB)
