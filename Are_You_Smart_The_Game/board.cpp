@@ -45,11 +45,16 @@ bool xOR(bool a, bool b) {
 }
 
 bool Board::noMorePossibleMoves() {
-	for (int i = 1; i < size-1; i++) {
-		for (int j = 1; j < size-1; j++) {
+	for (int i = 0; i < size; i++) {
+		for (int j = 0; j < size; j++) {
 			if ((i > 1 && i < size - 2) || (j > 1 && j < size - 2)) {
 				if (board[i][j]) {
-					if (xOR(board[i - 1][j], board[i + 1][j]) || xOR(board[i][j - 1], board[i][j + 1])) return false;
+					if (i > 0 && i < size - 1)
+						if (xOR(board[i - 1][j], board[i + 1][j]))
+							return false;
+					if (j > 0 && j < size - 1)
+						if (xOR(board[i][j - 1], board[i][j + 1])) 
+							return false;
 				}
 			}
 		}
