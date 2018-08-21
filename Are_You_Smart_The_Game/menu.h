@@ -10,6 +10,7 @@ public:
 	Menu();
 	void playTheGame();
 	void showScores();
+	void showTutorial();
 };
 
 

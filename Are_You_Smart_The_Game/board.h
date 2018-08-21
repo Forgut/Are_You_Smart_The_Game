@@ -8,6 +8,7 @@ class Board {
 	bool noMorePossibleMoves();
 	int countPawns();
 	void endingMessage();
+	bool pawnCanJump(int, int);
 public:
 	Board();
 	void printConsole();

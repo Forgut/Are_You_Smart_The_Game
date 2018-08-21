@@ -1,6 +1,7 @@
 #include "menu.h"
 #include "button.h"
 #include "scores.h"
+#include "instructions.h"
 #include <SFML\Graphics.hpp>	
 
 int Menu::checkButtonActivations(Button &button,sf::RenderWindow& window)
@@ -32,6 +33,11 @@ void Menu::showScores() {
 	Menu menu;
 }
 
+void Menu::showTutorial() {
+	Instructions instructions;
+	Menu menu;
+}
+
 
 
 Menu::Menu()
@@ -53,6 +59,8 @@ Menu::Menu()
 	scores.setPosition(winWidth / 2 - scores.getLocalBounds().width / 2, winHight * 4 / 10);
 	Button quit("Quit");
 	quit.setPosition(winWidth / 2 - quit.getLocalBounds().width / 2, winHight * 6 / 10);
+	Button tutorial("Tutorial");
+	tutorial.setPosition(winWidth / 2 - tutorial.getLocalBounds().width / 2, winHight * 5 / 10);
 
 	while (window.isOpen()) {
 		if (window.pollEvent(event)) {
@@ -67,6 +75,8 @@ Menu::Menu()
 			playTheGame();
 		if (checkButtonActivations(scores, window) == 2)
 			showScores();
+		if (checkButtonActivations(tutorial, window) == 2)
+			showTutorial();
 		if (checkButtonActivations(quit, window) == 2)
 			break; //quit the game
 
@@ -74,6 +84,7 @@ Menu::Menu()
 		window.draw(play.getText());
 		window.draw(scores.getText());
 		window.draw(quit.getText());
+		window.draw(tutorial.getText());
 		window.display();
 	}
 }

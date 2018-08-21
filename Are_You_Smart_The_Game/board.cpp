@@ -44,6 +44,20 @@ bool xOR(bool a, bool b) {
 	if (a == b) return false; else return true;
 }
 
+bool Board::pawnCanJump(int x, int y)
+{
+	if (board[x][y]) {
+		if (x > 1 && x < size - 1)
+			if (xOR(board[x - 1][y], board[x + 1][y]) && ((x == 3) || y > 1 && y < 5))
+				return false;
+		if (y > 1 && y < size - 1)
+			if (xOR(board[x][y - 1], board[x][y + 1]) && (x > 1 && x < 5) || (y == 3))
+				return false;
+	}
+	return false;
+}
+
+
 bool Board::noMorePossibleMoves() {
 	for (int i = 0; i < size; i++) {
 		for (int j = 0; j < size; j++) {
@@ -76,6 +90,7 @@ void Board::endingMessage()
 {
 	MessageBox(NULL, std::string("no more moves").c_str(), std::string("end").c_str(), MB_OK);
 }
+
 
 void Board::runTheGame() {
 	sf::RenderWindow window(sf::VideoMode(560, 560), "Are you smart?", sf::Style::Default);
